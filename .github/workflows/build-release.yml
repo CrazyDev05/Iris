@@ -41,20 +41,20 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build --full-stacktrace
+        run: ./gradlew iris --full-stacktrace
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3.1.3
         with:
           name: Iris-${{ steps.vars.outputs.sha_short }}
-          path: build/libs
+          path: build
 
       - name: Release Files
         uses: softprops/action-gh-release@v1
         with: 
           token: ${{ secrets.RELEASE_KEY }}
           files: |
-            build/libs/*.jar
+            build/*.jar
           tag_name: commit-${{ steps.vars.outputs.sha_short }}
           name: Iris [${{ steps.vars.outputs.sha_short }}]
           body: |
