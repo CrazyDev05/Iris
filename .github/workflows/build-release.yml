@@ -5,9 +5,6 @@ on:
   push:
     branches:
       - 'auto-build'
-  sync:
-    branches:
-      - 'auto-build'
   workflow_dispatch:
 
 permissions:
