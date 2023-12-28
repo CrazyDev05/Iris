@@ -4,7 +4,10 @@ name: Build Iris
 on:
   push:
     branches:
-      - 'master'
+      - 'auto-build'
+  sync:
+    branches:
+      - 'auto-build'
   workflow_dispatch:
 
 permissions:
