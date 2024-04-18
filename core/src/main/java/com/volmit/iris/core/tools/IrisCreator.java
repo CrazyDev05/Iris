@@ -86,6 +86,7 @@ public class IrisCreator {
      * Benchmark mode
      */
     private boolean benchmark = false;
+    private boolean smartVanillaHeight = false;
 
     public static boolean removeFromBukkitYml(String name) throws IOException {
         YamlConfiguration yml = YamlConfiguration.loadConfiguration(BUKKIT_YML);
@@ -112,13 +113,6 @@ public class IrisCreator {
      */
 
     public World create() throws IrisException {
-        if (unstablemode){
-            Iris.info(C.RED + "Your server is experiencing an incompatibility with the Iris plugin. Please rectify this problem to avoid further complications.");
-            Iris.info(C.RED + "----------------------------------------------------------------");
-            Iris.info(C.RED + "Operation ran: Loading Iris World..");
-            UtilsSFG.printIncompatibleWarnings();
-            Iris.info(C.RED + "----------------------------------------------------------------");
-        }
         if (Bukkit.isPrimaryThread()) {
             throw new IrisException("You cannot invoke create() on the main thread.");
         }
@@ -149,6 +143,7 @@ public class IrisCreator {
                 .name(name)
                 .seed(seed)
                 .studio(studio)
+                .smartVanillaHeight(smartVanillaHeight)
                 .create();
         ServerConfigurator.installDataPacks(false);
 
