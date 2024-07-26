@@ -40,9 +40,6 @@ jobs:
       - name: Gradle Permission
         run: chmod +x ./gradlew
 
-      - name: Setup Gradle
-        run: ./gradlew setup --full-stacktrace
-
       - name: Build with Gradle
         run: ./gradlew iris --full-stacktrace
 
