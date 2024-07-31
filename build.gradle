@@ -21,7 +21,7 @@ buildscript() {
         maven { url 'https://jitpack.io'}
     }
     dependencies {
-        classpath 'com.github.VolmitSoftware:NMSTools:1.0.0'
+        classpath 'com.github.VolmitSoftware:NMSTools:1.0.1'
     }
 }
 
@@ -32,7 +32,7 @@ plugins {
     id "de.undercouch.download" version "5.0.1"
 }
 
-version '3.3.1-1.19.2-1.20.6'
+version '3.3.1-1.19.2-1.21'
 
 // ADD YOURSELF AS A NEW LINE IF YOU WANT YOUR OWN BUILD TASK GENERATED
 // ======================== WINDOWS =============================
@@ -51,6 +51,7 @@ registerCustomOutputTaskUnix('CrazyDev22LT', '/home/julian/Desktop/server/plugin
 // ==============================================================
 
 def NMS_BINDINGS = Map.of(
+        "v1_21_R1", "1.21-R0.1-SNAPSHOT",
         "v1_20_R4", "1.20.6-R0.1-SNAPSHOT",
         "v1_20_R3", "1.20.4-R0.1-SNAPSHOT",
         "v1_20_R2", "1.20.2-R0.1-SNAPSHOT",
@@ -60,6 +61,7 @@ def NMS_BINDINGS = Map.of(
         "v1_19_R1", "1.19.2-R0.1-SNAPSHOT"
 )
 def JVM_VERSION = Map.of(
+        "v1_21_R1", 21,
         "v1_20_R4", 21,
 )
 NMS_BINDINGS.each { nms ->
